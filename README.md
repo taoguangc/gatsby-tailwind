@@ -1,15 +1,7 @@
-# Gatsby + Gastby-MDX + Netlify-CMS Starter
-
-Extended from the Gatsby starter, this starter aims to provide an example for using Gatsby-MDX with Netlify.
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e556df2f-659a-4d2d-9466-8575e6976936/deploy-status)](https://app.netlify.com/sites/mystifying-mclean-5c7fce/deploys)
-
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/renvrant/gatsby-mdx-netlify-cms-starter)
+# Gatsby + Netlify-CMS Starter
 
 ## Features
 
-- Support React Components in your CMS editing workflow through MDX
 - Read .MD and .MDX files as pages automatically
 - Swap page template based on CMS key, allowing editors to choose different page templates
 - Support CMS configurations that save markdown in frontmatter fields with an mdx-enabled markdown renderer component (with example)
@@ -22,7 +14,7 @@ Extended from the Gatsby starter, this starter aims to provide an example for us
 
 `yarn develop` or `npm run develop` @ localhost:8000
 
-Your development environment will read from your local .md files, but will *not* hot reload changes to the .md files. To make a change in the markdown and see it reflected:
+Your development environment will read from your local .md files, but will _not_ hot reload changes to the .md files. To make a change in the markdown and see it reflected:
 
 1. Stop the dev server
 2. Run `rm -rf .cache` to remove the gatsby cache
@@ -34,7 +26,7 @@ While running the dev server:
 
 `localhost:8000/admin`
 
-Log in using your Netlify credentials. 
+Log in using your Netlify credentials.
 
 Use the local admin to verify changes to your CMS config. Please note that the state of all markdown content will reflect the state of the github master branch, NOT your local changes.
 
@@ -46,17 +38,17 @@ Use the local admin to verify changes to your CMS config. Please note that the s
 
 Go through each of these directories to understand the project and extend from it.
 
-*src/cms* - Utilities for working with FrontMatter which Netlify CMS depends on, example previews and example widget registration. This folder also includes a whitelist of components that will be included in the MDX render scope in **cms-components.constants.js**.
+_src/cms_ - Utilities for working with FrontMatter which Netlify CMS depends on, example previews and example widget registration. This folder also includes a whitelist of components that will be included in the MDX render scope in **cms-components.constants.js**.
 
-*src/components* - Components, mostly default with a few additions such as a call to action and a smart link.
+_src/components_ - Components, mostly default with a few additions such as a call to action and a smart link.
 
-*src/core* - Core components to render markdown, catch errors
+_src/core_ - Core components to render markdown, catch errors
 
-*src/page-templates* - Templates for CMS pages and an entry template component that will be used to determine what template should be shown where. Look in particular at **cms-entry.template.js**
+_src/page-templates_ - Templates for CMS pages and an entry template component that will be used to determine what template should be shown where. Look in particular at **cms-entry.template.js**
 
-*src/pages* - Editor content. All CMS-created pages will live in the content directory. Other pages may be modified from the CMS, but cannot be created or deleted.
+_src/pages_ - Editor content. All CMS-created pages will live in the content directory. Other pages may be modified from the CMS, but cannot be created or deleted.
 
-*static/admin* - CMS Editor configuration.
+_static/admin_ - CMS Editor configuration.
 
 ## Templates and Template Keys
 
@@ -71,7 +63,6 @@ Due to the way Netlify works, some CMS content is saved as Markdown `frontmatter
 From Gatsby's Starter Docs:
 
 ## 🚀 Quick start
-
 
 1.  **Start developing.**
 
@@ -131,11 +122,3 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
 12. **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
