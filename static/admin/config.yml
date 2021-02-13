@@ -1,0 +1,51 @@
+backend:
+  name: git-gateway
+  branch: master
+  commit_messages:
+    create: 'Create {{collection}} “{{slug}}”'
+    update: 'Update {{collection}} “{{slug}}”'
+    delete: 'Delete {{collection}} “{{slug}}”'
+    uploadMedia: '[skip ci] Upload “{{path}}”'
+    deleteMedia: '[skip ci] Delete “{{path}}”'
+
+# npx netlify-cms-proxy-server
+local_backend: true
+
+media_folder: content/images
+public_folder: ../images
+
+collections:
+  - name: 'blog'
+    label: '博客'
+    folder: 'content/posts'
+    slug: '{{slug}}'
+    path: '{{year}}/{{slug}}'
+    create: true
+    nested: { depth: 10 }
+    fields:
+      - { name: title, label: '标题' }
+      - { name: date, label: '日期', widget: datetime }
+      - { name: tags, label: 'Tag 标签', widget: list, default: ['JavaScript'] }
+      - {
+          name: categories,
+          label: '类别',
+          widget: select,
+          options:
+            [
+              { label: '技术', value: 'dev' },
+              { label: '设计', value: 'design' },
+              { label: '其他', value: 'other' }
+            ],
+          default: [{ label: '技术', value: 'dev' }]
+        }
+      - { name: body, label: '正文', widget: markdown }
+  - name: 'pages'
+    label: '页面'
+    folder: 'content/pages'
+    slug: '{{slug}}'
+    path: '{{slug}}'
+    create: true
+    nested: { depth: 10 }
+    fields:
+      - { name: title, label: '标题' }
+      - { name: body, label: '正文', widget: markdown }

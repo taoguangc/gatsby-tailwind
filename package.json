@@ -1,0 +1,27 @@
+{
+  "name": "tailwind",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "autoprefixer": "^10.2.4",
+    "gatsby": "^2.32.2",
+    "gatsby-plugin-netlify-cms": "^4.10.0",
+    "gatsby-plugin-postcss": "^3.7.0",
+    "gatsby-source-filesystem": "^2.11.0",
+    "gatsby-transformer-remark": "^2.16.0",
+    "netlify-cms-app": "^2.14.20",
+    "postcss": "^8.2.4",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "tailwindcss": "^2.0.2"
+  }
+}
