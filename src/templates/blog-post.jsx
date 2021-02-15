@@ -8,7 +8,7 @@ export default function BlogPost({ data, pageContext }) {
 
   return (
     <Layout>
-      <article className="px-8">
+      <article className='markdown'>
         <h1>{frontmatter.title}</h1>
         <p>{frontmatter.date}</p>
         <div dangerouslySetInnerHTML={{ __html: html }} />

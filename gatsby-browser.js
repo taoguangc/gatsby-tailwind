@@ -1,1 +1,1 @@
-import './src/assets/css/site.css'
+import './src/styles/site.css'

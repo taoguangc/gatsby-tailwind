@@ -8,7 +8,6 @@ backend:
     uploadMedia: '[skip ci] Upload “{{path}}”'
     deleteMedia: '[skip ci] Delete “{{path}}”'
 
-# npx netlify-cms-proxy-server
 local_backend: true
 
 media_folder: content/images
@@ -19,7 +18,7 @@ collections:
     label: '博客'
     folder: 'content/posts'
     slug: '{{slug}}'
-    path: '{{year}}/{{slug}}'
+    path: '{{year}}/{{slug}}/index'
     create: true
     nested: { depth: 10 }
     fields:
