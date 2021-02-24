@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
+import SEO from '../components/seo'
 
 export default function BlogList({ data, pageContext }) {
   const posts = data.allMarkdownRemark.edges
@@ -11,22 +12,30 @@ export default function BlogList({ data, pageContext }) {
   const nextPage = `/${currentPage + 1}`
   return (
     <Layout>
+      <SEO />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         const { slug } = node.fields
         return (
-          <Link key={slug} to={slug}>
-            <h2 className='font-2xl'>{title}</h2>
-            {node.frontmatter.date}
-          </Link>
+          <div key={slug} className='relative px-4 my-4 md:w-1/2 lg:w-1/3'>
+            <Link
+              to={'/blog' + slug}
+              className='block h-full p-8 shadow-lg hover:shadow-xl bg-white'
+            >
+              <h2 className='text-lg mb-12'>{title}</h2>
+              <time className='absolute bottom-8 left-12 font-mono text-base text-gray-400 mt-6'>
+                {node.frontmatter.date}
+              </time>
+            </Link>
+          </div>
         )
       })}
-      <ul className='inline-flex shadow-sm -space-x-px'>
+      <ul className='my-12 px-4 w-full inline-flex -space-x-px'>
         {!isFirst ? (
           <li>
             <Link
               className='inline-flex p-2 rounded-l-md border border-gray-300 hover:bg-gray-50'
-              to={prevPage}
+              to={`/blog${prevPage}`}
               rel='prev'
             >
               <svg
@@ -67,7 +76,7 @@ export default function BlogList({ data, pageContext }) {
             <Link
               className='inline-flex text-sm px-4 py-2 border border-gray-300 hover:bg-gray-50'
               activeClassName='bg-indigo-50 text-indigo-700 font-semibold'
-              to={`/${i === 0 ? '' : i + 1}`}
+              to={`/blog/${i === 0 ? '' : i + 1}`}
             >
               {i + 1}
             </Link>
@@ -78,7 +87,7 @@ export default function BlogList({ data, pageContext }) {
           <li>
             <Link
               className='inline-flex p-2 rounded-r-md border border-gray-300 hover:bg-gray-50'
-              to={nextPage}
+              to={`/blog${nextPage}`}
               rel='next'
             >
               <svg
